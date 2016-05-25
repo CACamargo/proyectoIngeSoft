@@ -4,7 +4,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class ControladorGestionInmuebles extends JDialog implements ActionListener {
-	private JButton mostrarInmueblesBoton=new JButton("mostrar inmuebles");
+	private JButton mostrarInmueblesBoton=new JButton("Mostrar inmuebles");
+	private JButton mostrarInventariosBoton=new JButton("Mostrar inventarios");
 	private DefaultTableModel modeloTabla=new DefaultTableModel();
 	private JTable tabla=new JTable(modeloTabla);
 	private ModeloGestionInmuebles modelo=new ModeloGestionInmuebles();
@@ -22,9 +23,14 @@ public class ControladorGestionInmuebles extends JDialog implements ActionListen
 		createTable();
 		
 		mostrarInmueblesBoton.setSize(mostrarInmueblesBoton.getPreferredSize());
-		mostrarInmueblesBoton.setLocation(10, 500);
+		mostrarInmueblesBoton.setLocation(10, 450);
 		mostrarInmueblesBoton.addActionListener(this);
 		add(mostrarInmueblesBoton);
+		
+		mostrarInventariosBoton.setSize(mostrarInventariosBoton.getPreferredSize());
+		mostrarInventariosBoton.setLocation(10, 500);
+		mostrarInventariosBoton.addActionListener(this);
+		add(mostrarInventariosBoton);
 		
 		setVisible(true);
 		
@@ -46,6 +52,10 @@ public class ControladorGestionInmuebles extends JDialog implements ActionListen
 		if(event.getSource()==mostrarInmueblesBoton){
 			System.out.println("mostrar Inmuebles");
 			tabla.setModel(modelo.obtenerInmuebles());
+		}
+		else if(event.getSource()==mostrarInventariosBoton){
+			System.out.println("mostrar inventarios");
+			//tabla.setModel(modelo.obtenerInventarios());
 		}
 	}
 }
